@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-End Interface - JavaScript APIs & Design Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Front-End Interface</h1>
+            <nav>
+                <button class="nav-btn active" data-tab="apis">JavaScript APIs</button>
+                <button class="nav-btn" data-tab="editor">Design Editor</button>
+            </nav>
+        </header>
+
+        <!-- JavaScript APIs Section -->
+        <section id="apis-section" class="tab-content active">
+            <div class="api-grid">
+                <div class="api-card">
+                    <h2>Canvas API</h2>
+                    <canvas id="canvas" width="400" height="300"></canvas>
+                    <div class="controls">
+                        <button id="drawBtn">Draw Random</button>
+                        <button id="clearBtn">Clear</button>
+                        <input type="color" id="colorPicker" value="#3498db">
+                    </div>
+                </div>
+
+                <div class="api-card">
+                    <h2>Geolocation API</h2>
+                    <div id="location-info">
+                        <p>Click to get your location</p>
+                    </div>
+                    <button id="getLocationBtn">Get Location</button>
+                </div>
+
+                <div class="api-card">
+                    <h2>Web Audio API</h2>
+                    <div class="audio-controls">
+                        <button id="playToneBtn">Play Tone</button>
+                        <input type="range" id="frequencySlider" min="200" max="1000" value="440">
+                        <span id="frequencyValue">440 Hz</span>
+                    </div>
+                </div>
+
+                <div class="api-card">
+                    <h2>LocalStorage API</h2>
+                    <input type="text" id="storageKey" placeholder="Key">
+                    <input type="text" id="storageValue" placeholder="Value">
+                    <button id="saveBtn">Save</button>
+                    <button id="loadBtn">Load</button>
+                    <button id="clearStorageBtn">Clear</button>
+                    <div id="storageOutput"></div>
+                </div>
+
+                <div class="api-card">
+                    <h2>Fetch API</h2>
+                    <input type="text" id="urlInput" placeholder="Enter URL" value="https://jsonplaceholder.typicode.com/posts/1">
+                    <button id="fetchBtn">Fetch Data</button>
+                    <pre id="fetchOutput"></pre>
+                </div>
+
+                <div class="api-card">
+                    <h2>Web Speech API</h2>
+                    <button id="startSpeechBtn">Start Speech Recognition</button>
+                    <button id="stopSpeechBtn">Stop</button>
+                    <div id="speechOutput"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Editor Section -->
+        <section id="editor-section" class="tab-content">
+            <div class="editor-container">
+                <div class="editor-sidebar">
+                    <h3>Tools</h3>
+                    <div class="tool-buttons">
+                        <button class="tool-btn active" data-tool="select">Select</button>
+                        <button class="tool-btn" data-tool="rectangle">Rectangle</button>
+                        <button class="tool-btn" data-tool="circle">Circle</button>
+                        <button class="tool-btn" data-tool="text">Text</button>
+                        <button class="tool-btn" data-tool="line">Line</button>
+                    </div>
+
+                    <h3>Properties</h3>
+                    <div class="properties-panel">
+                        <label>Fill Color</label>
+                        <input type="color" id="fillColor" value="#3498db">
+                        
+                        <label>Stroke Color</label>
+                        <input type="color" id="strokeColor" value="#2c3e50">
+                        
+                        <label>Stroke Width</label>
+                        <input type="range" id="strokeWidth" min="1" max="20" value="2">
+                        <span id="strokeWidthValue">2px</span>
+                        
+                        <label>Font Size</label>
+                        <input type="range" id="fontSize" min="12" max="72" value="24">
+                        <span id="fontSizeValue">24px</span>
+                        
+                        <label>Opacity</label>
+                        <input type="range" id="opacity" min="0" max="100" value="100">
+                        <span id="opacityValue">100%</span>
+                    </div>
+
+                    <h3>Layers</h3>
+                    <div id="layersList" class="layers-list"></div>
+
+                    <h3>Actions</h3>
+                    <div class="action-buttons">
+                        <button id="deleteBtn">Delete Selected</button>
+                        <button id="duplicateBtn">Duplicate</button>
+                        <button id="bringFrontBtn">Bring to Front</button>
+                        <button id="sendBackBtn">Send to Back</button>
+                        <button id="exportBtn">Export as PNG</button>
+                    </div>
+                </div>
+
+                <div class="editor-main">
+                    <canvas id="editorCanvas" width="800" height="600"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="apis.js"></script>
+    <script src="editor.js"></script>
+</body>
+</html>
